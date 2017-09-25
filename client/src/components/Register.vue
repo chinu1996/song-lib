@@ -6,8 +6,24 @@
           <v-toolbar-title>Register</v-toolbar-title>
         </v-toolbar>
         <div class="pl-4 pr-4 pt-2">
-          <input type="text" name="email" placeholder="email" v-model="email"><br>
-          <input type="password" name="password" placeholder="password" v-model="password"><br>
+          <form
+            name="song-lib-form"
+            autocomplete="off">
+           <v-text-field
+              label="Email"
+              id="testing"
+              v-model="email"
+            ></v-text-field>
+             <v-text-field
+              label="Password"
+              type="password"
+              id="testing"
+              v-model="password"
+              autocomplete="new-password"
+            ></v-text-field>
+          </form>
+            
+    
           <div class="error" v-html="error"></div>
           <v-btn class="cyan" @click="register">Register</v-btn>
         </div>
@@ -34,7 +50,8 @@ export default {
           email: this.email,
           password: this.password
         })
-        console.log(response.data)
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
         this.error = error.response.data.error
       }
@@ -46,6 +63,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .error {
-  color: red;
+  color:red;
+  font: outline;
 }
 </style>

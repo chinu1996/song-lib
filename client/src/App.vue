@@ -1,13 +1,26 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <router-view></router-view>
+    <page-header />
+    <div id="app">
+      <v-app>
+        <main>
+          <v-container fluid>
+            <router-view></router-view>
+
+          </v-container>
+        </main>
+      </v-app>
+    </div>
   </div>
 </template>
 
 <script>
+import PageHeader from '@/components/Header.vue'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    PageHeader
+  }
 }
 </script>
 
@@ -19,5 +32,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.toolbar__title {
+  color: white;
+}
+
+.btn__content {
+  color: white;
 }
 </style>
