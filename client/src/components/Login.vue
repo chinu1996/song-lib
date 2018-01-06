@@ -1,10 +1,9 @@
 <template>
   <v-layout coloumn>
     <v-flex xs6 offset-xs3>
-      <div class="white elevation-2">
-        <v-toolbar flat dense class="cyan" dark>
-          <v-toolbar-title>Login</v-toolbar-title>
-        </v-toolbar>
+      <panel title="Login">
+        <div class="pl-4 pr-4 pt-2">
+        
         <form
             name="song-lib-form"
             autocomplete="off">
@@ -21,18 +20,18 @@
               autocomplete="new-password"
             ></v-text-field>
           </form>
-            
-    
+          
           <div class="error" v-html="error"></div>
           <v-btn class="cyan" @click="login">login</v-btn>
         </div>
-      </div>
+      </panel>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+
 export default {
   name: 'hello',
   data () {
